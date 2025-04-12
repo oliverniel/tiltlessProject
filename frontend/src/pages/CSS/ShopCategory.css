@@ -1,0 +1,15 @@
+.shop-category{
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.shop-cateogory img {
+    display: block;
+    width: 100vw;
+    height: 300px; 
+    object-fit: contain; 
+    object-position: top; 
+
+}

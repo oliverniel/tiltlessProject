@@ -19,7 +19,8 @@ import PROV1X_paketti from './PROV1X_paketti.JPG';
 import PROV1X_pallo from './PROV1X_pallo.JPG';
 import putteriSpider_etuosa from './putteriSpider_etuosa.JPG';
 import putteriSpider_pohja from './putteriSpider_pohja.JPG';
-import putteriSpider_takaa from './putteriSpider_takaa.JPG';
+import putteriSpider_grippi from './putteriSpider_grippi.JPG';
+import putteriSpider_ylhäältä from './putteriSpider_ylhäältä.JPG';
 import raudat_kaikki from './raudat_kaikki.JPG';
 import raudat_lapa from './raudat_lapa.JPG';
 import raudat_sivu from './raudat_sivu.JPG';
@@ -28,12 +29,12 @@ import SM10_pohja from './SM10_pohja.JPG';
 import SM10_ylapuoli from './SM10_ylapuoli.JPG';
 import SSNewport_edesta from './SSNewport_edesta.JPG';
 import SSNewport_pohja from './SSNewport_pohja.JPG';
-import SSNewport_yläpuoli from './SSNewport_yläpuoli.JPG';
+import SSNewport_ylapuoli from './SSNewport_ylapuoli.JPG';
 import T150_edesta from './T150_edesta.JPG';
 import T150_sivu from './T150_sivu.JPG';
 import T150_ylapuoli from './T150_ylapuoli.JPG';
 import T200UD_edesta from './T200UD_edesta.JPG';
-import T200UD_pohja from './T200UD_pohja.JPG';
+import T200UD_sivu from './T200UD_sivu.JPG';
 import T200UD_ylapuoli from './T200UD_ylapuoli.JPG';
 
 
@@ -83,7 +84,7 @@ let all_products = [
         price: 299,
         images: [
             { src: T200UD_edesta, alt: 'T200UD_edesta' },
-            { src: T200UD_pohja, alt: 'T200UD_pohja' },
+            { src: T200UD_sivu, alt: 'T200UD_sivu' },
             { src: T200UD_ylapuoli, alt: 'T200UD_ylapuoli' }
         ],
         hand: ['Right', 'Left'],
@@ -156,7 +157,7 @@ let all_products = [
         images: [
             { src: SSNewport_edesta, alt: 'SSNewport_edesta' },
             { src: SSNewport_pohja, alt: 'SSNewport_pohja' },
-            { src: SSNewport_yläpuoli, alt: 'SSNewport_yläpuoli' }
+            { src: SSNewport_ylapuoli, alt: 'SSNewport_ylapuoli' }
         ],
         hand: ['Right', 'Left'],
         shaft: ['34" (Pituus)','35" (Pituus)'],
@@ -262,7 +263,8 @@ let all_products = [
         images: [
             { src: putteriSpider_etuosa, alt: 'putteriSpider_etuosa' },
             { src: putteriSpider_pohja, alt: 'putteriSpider_pohja' },
-            { src: putteriSpider_takaa, alt: 'putteriSpider_takaa' }
+            { src: putteriSpider_grippi, alt: 'putteriSpider_grippi' },
+            { src: putteriSpider_ylhäältä, alt: 'putteriSpider_ylhäältä' }
         ],
         hand: 'Right',
         shaft: '34" (pituus)',
@@ -271,3 +273,5 @@ let all_products = [
         new: false,
     }
 ]
+
+export default all_products;
