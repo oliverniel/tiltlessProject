@@ -44,7 +44,7 @@ let all_products = [
         name: 'GT3 Driver',
         brand: 'Titleist',
         type: 'Driver',
-        describtion: '•	Titleistin GT3-draiveri antaa pallolle äärimmäisen kovan nopeuden. Erinomainen säädettävyys sopii pelaajille, jotka haluavat optimoida lyöntipituuden ja hallita lentorataa.',
+        describtion: 'Titleistin GT3-draiveri antaa pallolle äärimmäisen kovan nopeuden. Erinomainen säädettävyys sopii pelaajille, jotka haluavat optimoida lyöntipituuden ja hallita lentorataa.',
         price: 699,
         images: [
             { src: GT3Driver_edesta, alt: 'GT3Driver_edesta' },
@@ -55,14 +55,16 @@ let all_products = [
         shaft: ['Mitsubishi SH DRV/FWY Tensei 1K Black 65', 'Mitsubishi SH DRV/FWY Tensei 1K Blue 55'],
         flex: ['Stiff', 'X-Stiff'],
         loft: ['8°','9°', '10°'],
+        category:[ 'allProducts', 'newClubs'],
         new: true,
+
     },
     {
         id: 2,
         name: 'GT3 Fairway',
         brand: 'Titleist',
         type: 'Fairway wood',
-        describtion: '•	Titleistin GT3 tarjoaa hallittavuutta, kovaa pallon nopeutta sekä matalia spinnilukemia. Se on ihanteellinen valinta taitaville golffareille, jotka arvostavat äärimmäistä lyöntipituutta. Korkeampi lyöntipinta erottaa GT3:n GT2:sta. Tätä profiilia suosivat monet pelaajat, jotka haluavat lyödä palloa metallisella väyläpuulla ja jotka pitävät syvemmän mallisen lyöntipinnan ulkonäöstä.',
+        describtion: 'Titleistin GT3 tarjoaa hallittavuutta, kovaa pallon nopeutta sekä matalia spinnilukemia. Se on ihanteellinen valinta taitaville golffareille, jotka arvostavat äärimmäistä lyöntipituutta. Korkeampi lyöntipinta erottaa GT3:n GT2:sta. Tätä profiilia suosivat monet pelaajat, jotka haluavat lyödä palloa metallisella väyläpuulla ja jotka pitävät syvemmän mallisen lyöntipinnan ulkonäöstä.',
         price: 379,
         images: [
             { src: GT3Fairway_edesta, alt: 'GT3Fairway_edesta' },
@@ -73,6 +75,7 @@ let all_products = [
         shaft: ['Mitsubishi SH DRV/FWY Tensei 1K Black 75', 'Mitsubishi SH DRV/FWY Tensei 1K Blue 65'],
         flex: ['Stiff', 'X-Stiff'],
         loft: ['13.5°', '15°'],
+        category:[ 'allProducts', 'newClubs'],
         new: true,
     },
     {
@@ -80,7 +83,7 @@ let all_products = [
         name: 'T200U 3G Utility',
         brand: 'Titleist',
         type: 'Utility iron',
-        describtion: '•	Titleist T200 Utility perustuu samannimiseen suosittuun rautasettiin, mutta siinä on lisää anteeksiantavuutta ja se antaa sinulle hallinnan, jota tarvitset lyödäksesi kakkos- tai kolmosrautaa luottavaisin mielin. Mailaa voidaan käyttää sekä tiiltä että väylältä, ja se on erinomainen valinta monille tourpelaajille.',
+        describtion: 'Titleist T200 Utility perustuu samannimiseen suosittuun rautasettiin, mutta siinä on lisää anteeksiantavuutta ja se antaa sinulle hallinnan, jota tarvitset lyödäksesi kakkos- tai kolmosrautaa luottavaisin mielin. Mailaa voidaan käyttää sekä tiiltä että väylältä, ja se on erinomainen valinta monille tourpelaajille.',
         price: 299,
         images: [
             { src: T200UD_edesta, alt: 'T200UD_edesta' },
@@ -91,6 +94,7 @@ let all_products = [
         shaft: 'Project X HZRDUS Black 4G',
         flex: '6.0',
         loft: ['17°/2-iron', '20°/3-iron'],
+        category:[ 'allProducts', 'newClubs'],
         new: true,
     },
     {
@@ -98,7 +102,7 @@ let all_products = [
         name: 'T150 irons (5-pw)',
         brand: 'Titleist',
         type: 'Iron',
-        describtion: '•	Titleistin tiimi käy tourpelaajien ja tavoitteellisten harrastajagolffarien kanssa läpi T-Series-rautamailojen jokaisen ominaisuuden – hallittavuuden, lyöntipituuden, lentoradan, anteeksiantavuuden, ulkonäön, lyöntiäänen ja tuntuman – jotta lopputulos olisi peliä parantava rautamaila. Titleist T150 pohjautuu T100:n täysin taottuun rakenteeseen, mutta on suunniteltu kuumemmaksi ja lyö pidemmälle. Entistäkin anteeksiantavammassa mallissa on myös luottamusta herättävä muotoilu.',
+        describtion: 'Titleistin tiimi käy tourpelaajien ja tavoitteellisten harrastajagolffarien kanssa läpi T-Series-rautamailojen jokaisen ominaisuuden – hallittavuuden, lyöntipituuden, lentoradan, anteeksiantavuuden, ulkonäön, lyöntiäänen ja tuntuman – jotta lopputulos olisi peliä parantava rautamaila. Titleist T150 pohjautuu T100:n täysin taottuun rakenteeseen, mutta on suunniteltu kuumemmaksi ja lyö pidemmälle. Entistäkin anteeksiantavammassa mallissa on myös luottamusta herättävä muotoilu.',
         price: 1249,
         images: [
             { src: T150_edesta, alt: 'T150_edesta' },
@@ -108,7 +112,8 @@ let all_products = [
         hand: ['Right', 'Left'],
         shaft: 'Project X LZ',
         flex: ['6.0'],
-        loft: ['25','28','32','36','40','44'],
+        loft: ['25°, 28°, 32°, 36°, 40° ja 44°'],
+        category:[ 'allProducts', 'newClubs'],
         new: true,
     },
     {
@@ -116,7 +121,7 @@ let all_products = [
         name: 'SM10 Wedge',
         brand: 'Titleist',
         type: 'Wedge',
-        describtion: '•	Kun bägissä on Titleist SM10 -wedget, mahdollisuudet parantaa tasoitustasi kasvavat. Tarkka kontakti, optimaalinen lentorata, ainutlaatuinen spinni – ja huikeat Bob Vokey -pohjahionnat – varmistavat, että saat kaiken tarvittavan lähipelin terävöittämiseen. SM10 on suunniteltu hienoihin lyönteihin – yksinkertaisiin ja ikimuistoisiin.',
+        describtion: 'Kun bägissä on Titleist SM10 -wedget, mahdollisuudet parantaa tasoitustasi kasvavat. Tarkka kontakti, optimaalinen lentorata, ainutlaatuinen spinni – ja huikeat Bob Vokey -pohjahionnat – varmistavat, että saat kaiken tarvittavan lähipelin terävöittämiseen. SM10 on suunniteltu hienoihin lyönteihin – yksinkertaisiin ja ikimuistoisiin.',
         price: 179,
         images: [
             { src: SM10_edesta, alt: 'SM10_edesta' },
@@ -127,6 +132,7 @@ let all_products = [
         shaft: ['Graphite regular', 'Stiff'],
         flex:'',
         loft:['50°', '52°', '54°', '56°', '58°', '60°'],
+        category:[ 'allProducts', 'newClubs'],
         new: true,
     },
     {
@@ -134,7 +140,7 @@ let all_products = [
         name: 'Phantom 5',
         brand: 'Scotty Cameron',
         type: 'Putter',
-        describtion: '•	Tässä on Scottyn malletputterien ikisuosikki. Phantom 5 tunnetaan kompaktista mallet-muotoilustaan ja blade-tyyppisestä tuntumastaan. Putterissa on uusi, modernimpi muotoilu. Tarkkuusjyrsityssä putterissa on ruostumatonta 303-terästä ja 6061-alumiinia. Aiempiin malleihin verrattuna tämän mallin siivekkeiden kulma on suorempi. Uudistetun ylälinjan elegantit, jyrsityt tähtäyspisteet tekevät mailasta vakuuttavan näköisen. Pisteitä on korostettu läpikuultavalla smoke-värillä.',
+        describtion: 'Tässä on Scottyn malletputterien ikisuosikki. Phantom 5 tunnetaan kompaktista mallet-muotoilustaan ja blade-tyyppisestä tuntumastaan. Putterissa on uusi, modernimpi muotoilu. Tarkkuusjyrsityssä putterissa on ruostumatonta 303-terästä ja 6061-alumiinia. Aiempiin malleihin verrattuna tämän mallin siivekkeiden kulma on suorempi. Uudistetun ylälinjan elegantit, jyrsityt tähtäyspisteet tekevät mailasta vakuuttavan näköisen. Pisteitä on korostettu läpikuultavalla smoke-värillä.',
         price: 499,
         images: [
             { src: Phantom5_edesta, alt: 'Phantom5_edesta' },
@@ -145,6 +151,7 @@ let all_products = [
         shaft: 'Scotty Cameron Pistolini grip (Grippi)',
         flex: ['34" (Pituus)','35" (Pituus)'],
         loft:'',
+        category:[ 'allProducts', 'newClubs'],
         new: true,
     },
     {
@@ -152,7 +159,7 @@ let all_products = [
         name: 'SS Newport 2',
         brand: 'Scotty Cameron',
         type: 'Putter',
-        describtion: '•	Scotty Cameronin Studio Style Newport 2 on tourien innoittama ja ajaton blade-putteri, jossa on terävät linjat ja klassinen ilme. Tarkkuusjyrsitty lyöntipinta ja tasainen painon jakautuminen varmistavat vakaan tuntuman ja puhtaan osuman, mikä tekee mailasta erinomaisen valinnan pelaajille, jotka etsivät greeneille hallittavuutta ja miellyttävää tuntumaa.',
+        describtion: 'Scotty Cameronin Studio Style Newport 2 on tourien innoittama ja ajaton blade-putteri, jossa on terävät linjat ja klassinen ilme. Tarkkuusjyrsitty lyöntipinta ja tasainen painon jakautuminen varmistavat vakaan tuntuman ja puhtaan osuman, mikä tekee mailasta erinomaisen valinnan pelaajille, jotka etsivät greeneille hallittavuutta ja miellyttävää tuntumaa.',
         price: 499,
         images: [
             { src: SSNewport_edesta, alt: 'SSNewport_edesta' },
@@ -163,6 +170,7 @@ let all_products = [
         shaft: ['34" (Pituus)','35" (Pituus)'],
         flex: 'Putter-flex',
         loft:'3°',
+        category:[ 'allProducts', 'newClubs'],
         new: true,
     },
     {
@@ -181,6 +189,7 @@ let all_products = [
         shaft: 'Callaway Impact Wedge-flex',
         flex: 'Wedge-flex',
         loft: '56°',
+        category:[ 'allProducts', 'usedClubs'],
         new: false,
     },
     {
@@ -199,6 +208,7 @@ let all_products = [
         shaft: 'Mitsubishi Kai\'li 60s',
         flex: 'Stiff',
         loft: '9° (säädettävät +/- 1°)',
+        category:[ 'allProducts', 'usedClubs'],
         new: false,
     },
     {
@@ -209,14 +219,15 @@ let all_products = [
         describtion: 'Titleistin tour-tason rautasetti. Lavoissa vähän, mutta jonkin verran naarmuja käytöstä. 8-raudassa pieni kiven lommo, ei vaikuta pelaamiseen. Gripit vaihdettavassa kunnossa.',
         price: 599,
         images: [
+            { src: raudat_sivu, alt: 'raudat_sivu' },
             { src: raudat_kaikki, alt: 'raudat_kaikki' },
-            { src: raudat_lapa, alt: 'raudat_lapa' },
-            { src: raudat_sivu, alt: 'raudat_sivu' }
+            { src: raudat_lapa, alt: 'raudat_lapa' }
         ],
         hand: 'Right',
         shaft: 'True Temper AMT 300 Tour White',
         flex: 'Stiff',
-        loft: ['46°', '42°', '38°', '34°', '30°', '26°'],
+        loft: ['46°, 42°, 38°, 34°, 30° ja 26°'],
+        category:[ 'allProducts', 'usedClubs'],
         new: false,
     },
     {
@@ -234,6 +245,7 @@ let all_products = [
         shaft: '',
         flex: '',
         loft: '',
+        category:[ 'allProducts', 'balls'],
         new: true,
     },
     {
@@ -251,6 +263,7 @@ let all_products = [
         shaft: '',
         flex: '',
         loft: '',
+        category:[ 'allProducts', 'balls'],
         new: true,
     },
     {
@@ -270,6 +283,7 @@ let all_products = [
         shaft: '34" (pituus)',
         flex: 'Putter-flex',
         loft: '3°',
+        category:[ 'allProducts', 'usedClubs'],
         new: false,
     }
 ]
