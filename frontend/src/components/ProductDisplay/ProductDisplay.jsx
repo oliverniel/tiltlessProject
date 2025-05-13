@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './ProductDisplay.css';
+import { ShopContext } from '../../Context/ShopContext';
 
 const ProductDisplay = (props) => {
     const { product } = props;
+    const {addToCart} = useContext(ShopContext)
     const [selectedHand, setSelectedHand] = useState(null);
     const [selectedShaft, setSelectedShaft] = useState(null);
     const [selectedFlex, setSelectedFlex] = useState(null);
@@ -47,6 +49,9 @@ const ProductDisplay = (props) => {
                 <div className="productdisplay-right-description">
                     <p>{product.describtion}</p>
                 </div>
+                <div className="productdisplay-right-category">
+                    <p>Category: {product.type}</p>
+                </div>
                 <div className="productdisplay-right-hand">
                     <p>Kätisyys:</p>
                     {renderOptionButtons(product.hand, selectedHand, setSelectedHand)}
@@ -64,7 +69,7 @@ const ProductDisplay = (props) => {
                     {renderOptionButtons(product.loft, selectedLoft, setSelectedLoft)}
                 </div>
                 <div className="productdisplay-right-add">
-                    <button>ADD TO CART</button>
+                    <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
                 </div>
             </div>
         </div>

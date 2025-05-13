@@ -4,7 +4,7 @@ import all_products from '../assets/all_products.js'
 import Item from '../Item/Item';
 
 const BrandNew = () => {
-    const newProducts = all_products.filter(item=>item.new && item.type != 'Ball');
+    const newProducts = all_products.filter(item=>item.new && item.type !== 'Ball');
 
     return (
         <div className='brand-new'>

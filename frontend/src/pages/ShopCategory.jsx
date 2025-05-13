@@ -12,7 +12,7 @@ const ShopCategory = (props) => {
         item.category.includes(props.category))
 
     return (
-        <div className='shop-cateogory'>
+        <div className='shop-category'>
             <img src={props.banner} alt=""/>
             <div className="shopcategory-indexSort">
                 <p>

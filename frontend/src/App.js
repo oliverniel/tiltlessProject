@@ -1,11 +1,11 @@
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import ShopCategory from './Pages/ShopCategory';
-import Product from './Pages/Product';
-import Cart from './Pages/Cart';
-import LoginSignup from './Pages/LoginSignup';
-import Home from './Pages/Home';
+import ShopCategory from './pages/ShopCategory';
+import Product from './pages/Product';
+import Cart from './pages/Cart';
+import LoginSignup from './pages/LoginSignup';
+import Home from './pages/Home';
 import Footer from './components/Footer/Footer';
 import taustaBannerRajattu from './components/assets/taustaBannerRajattu.jpg';
 
