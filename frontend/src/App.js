@@ -8,6 +8,8 @@ import LoginSignup from './pages/LoginSignup';
 import Home from './pages/Home';
 import Footer from './components/Footer/Footer';
 import taustaBannerRajattu from './components/assets/taustaBannerRajattu.jpg';
+import Orders from './components/Orders/Orders'; 
+
 
 
 
@@ -27,6 +29,7 @@ function App() {
         </Route>
         <Route path='/cart' element={<Cart/>} />
         <Route path='/login' element={<LoginSignup/>}/>
+        <Route path="/orders" element={<Orders />} />
       </Routes>
       <Footer/>
       </BrowserRouter>

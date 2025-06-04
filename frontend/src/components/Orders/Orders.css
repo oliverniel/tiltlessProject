@@ -1,0 +1,48 @@
+.orders-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  font-family: inherit;
+}
+
+.orders-title {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+}
+
+.order-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  padding: 18px 24px;
+  background: #fafbfc;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+
+.order-date {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.order-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-items li {
+  padding: 7px 0;
+  border-bottom: 1px solid #ececec;
+  font-size: 1rem;
+  color: #222;
+}
+
+.order-items li:last-child {
+  border-bottom: none;
+}

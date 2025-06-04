@@ -4,6 +4,7 @@ import arrow from '../assets/arrow.png';
 
 const Breadcrum = (props) => {
     const {product} = props;
+    if (!product) return null; // Estetään virhe, jos product puuttuu
 
     return (
         <div className='breadcrum'>

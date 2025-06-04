@@ -1,18 +1,75 @@
 import React from 'react';
 import './CSS/LoginSignup.css';
+import { useState } from 'react';
 
 const LoginSignup = () => {
+
+    const [state, setState] = useState("Login");
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData, [e.target.name]: e.target.value
+        })
+    }
+
+    const login = async () => {
+        console.log("Login function called", formData);   
+        let responseData
+        await fetch('http://localhost:4000/login', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        }).then((response) => response.json()).then((data) => {responseData = data})
+        if(responseData.success) {
+            console.log("LOGIN RESPONSE:", responseData);
+            localStorage.setItem('aut-token', responseData.token);
+            localStorage.setItem('user-email', responseData.email || (responseData.user && responseData.user.email) || "unidentified");
+            window.location.href = '/';
+        } else {
+            alert(responseData.errors || "An error occurred during sign up.");
+        }
+    }
+
+    const signUp = async () => {
+        console.log("Sign Up function called", formData);   
+        let responseData
+        await fetch('http://localhost:4000/signup', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        }).then((response) => response.json()).then((data) => {responseData = data})
+        if(responseData.success) {
+            localStorage.setItem('aut-token', responseData.token);
+            localStorage.setItem('user-email', responseData.email || (responseData.user && responseData.user.email) || "unidentified");
+            window.location.href = '/';
+        } else {
+            alert(responseData.errors || "An error occurred during sign up.");
+        }
+    }
+
     return (
         <div className="loginsignup">
             <div className="loginsignup-container">
-                <h1>Sign up</h1>
+                <h1>{state}</h1>
                 <div className="loginsignup-fields">
-                    <input type="text" placeholder="Your Name" />
-                    <input type="email" placeholder="Your Email" />
-                    <input type="password" placeholder="Your Password" />
+                    {state==="Sign Up"?<input name="name" type="text" placeholder="Your Name" value={formData.name} onChange={handleChange}/>:<></>}
+                    <input name="email" value={formData.email} onChange={handleChange} type="email" placeholder="Your Email" />
+                    <input name="password" value={formData.password} onChange={handleChange} type="password" placeholder="Your Password" />
                 </div>
-                <button>Continue</button>
-                <p className="loginsignup-login">Already have an account? <span>Login here</span></p>
+                <button onClick={()=>{state==="Login"?login():signUp()}}>Continue</button>
+                {state==="Sign Up"?<p className="loginsignup-login">Already have an account? <span onClick={()=>{setState("Login")}}>Login here</span></p> :
+                <p className="loginsignup-login">Create an account? <span onClick={()=>{setState("Sign Up")}}>Click here</span></p>}
             </div>
         </div>
             
