@@ -118,9 +118,7 @@ app.post('/addproduct', async (req, res) => {
         new: req.body.new,
         available: req.body.available
     })
-    console.log(product)
     await product.save()
-    console.log("Product saved")
     res.json({
         success: true,
         name: req.body.name
@@ -129,9 +127,7 @@ app.post('/addproduct', async (req, res) => {
 
 // Api for deleting products
 app.post('/removeproduct', async (req, res) => {
-    console.log("Poistetaan id:", req.body.id, typeof req.body.id)
     await Product.findOneAndDelete({ id: req.body.id })
-    console.log("Product removed")
     res.json({
         success: true,
         id: req.body.id
@@ -141,7 +137,6 @@ app.post('/removeproduct', async (req, res) => {
 // API for getting all products
 app.get('/allproducts', async (req, res) => {
     let products = await Product.find({})
-    console.log("Products found")
     res.send(products)
 })
 
@@ -246,7 +241,6 @@ const fetchUser = (req, res, next) => {
 
 // Creating endpoint for adding items to cart
 app.post('/addtocart', fetchUser, async(req, res) => {
-    console.log("Added item to cart", req.body.itemId, req.body.options);
     let userData = await Users.findOne({_id: req.user.id})
     if (!userData.cartDataDetails) userData.cartDataDetails = {};
     const variantKey = [req.body.itemId, req.body.options?.hand, req.body.options?.shaft, req.body.options?.flex, req.body.options?.loft].filter(Boolean).join('_');
@@ -269,7 +263,6 @@ app.post('/addtocart', fetchUser, async(req, res) => {
 
 // Creating endpoint to remove items from cart
 app.post('/removefromcart', fetchUser, async(req, res) => {
-    console.log("Removed item from cart", req.body.itemId, req.body.options);
     let userData = await Users.findOne({_id: req.user.id})
     if (!userData.cartDataDetails) userData.cartDataDetails = {};
     const variantKey = [req.body.itemId, req.body.options?.hand, req.body.options?.shaft, req.body.options?.flex, req.body.options?.loft].filter(Boolean).join('_');
@@ -313,7 +306,6 @@ app.get('/orders', fetchUser, async (req, res) => {
 
 // creating endpoint for getting users cart data
 app.post('/getcart', fetchUser, async(req, res) => {
-    console.log('GetCart')
     let userData = await Users.findOne({_id: req.user.id})
     res.json(userData.cartDataDetails || userData.cartData) 
 })
