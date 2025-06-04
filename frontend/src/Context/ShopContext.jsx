@@ -33,7 +33,6 @@ const ShopContextProvider = (props) => {
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log('Cart data fetched:', data);
                     if (data && typeof data === 'object' && Object.values(data).some(item => typeof item === 'object' && 'qty' in item)) {
                         setCartDetails(data);
                     } else {
@@ -53,11 +52,7 @@ const ShopContextProvider = (props) => {
             return;
         }
 
-        console.log('addToCart called', itemID, options);
-        console.log('aut-token:', localStorage.getItem('aut-token'));
-        console.log('all_products:', all_products);
         const product = all_products.find((p) => p.id === itemID || p.id === Number(itemID));
-        console.log('product:', product);
 
 
         const variantKey = [itemID, options.hand, options.shaft, options.flex, options.loft].filter(Boolean).join('_');
@@ -91,11 +86,8 @@ const ShopContextProvider = (props) => {
                 body: JSON.stringify({ "itemId": itemID, options }),
             })
             .then((response) => response.json())
-            .then((data) => console.log(data))
             .catch((err) => console.error('Add to cart fetch error:', err));
         }
-        console.log(cartItems)
-        console.log('cartDetails', cartDetails)
     }
 
     const removeFromCart = (itemID, options = {}) => {
