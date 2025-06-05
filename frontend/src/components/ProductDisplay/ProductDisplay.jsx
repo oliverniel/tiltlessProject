@@ -11,6 +11,20 @@ const ProductDisplay = (props) => {
     const [selectedLoft, setSelectedLoft] = useState(null);
     const [errorMsg, setErrorMsg] = useState("");
     const [mainImgIndex, setMainImgIndex] = useState(0);
+    const API_URL = process.env.REACT_APP_API_URL;
+
+    const getImageUrl = (img) => {
+        if (typeof img === 'string') {
+            if (img.startsWith('http://localhost:4000')) {
+                return img.replace('http://localhost:4000', API_URL);
+            }
+            return img;
+        }
+        if (img?.src && img.src.startsWith('http://localhost:4000')) {
+            return img.src.replace('http://localhost:4000', API_URL);
+        }
+        return img?.src || '';
+    };
 
     if (!product || !product.images) return <div>Loading...</div>; 
 
@@ -57,7 +71,7 @@ const ProductDisplay = (props) => {
                     {product.images.map((img, index) => (
                         <img
                             key={index}
-                            src={typeof img === 'string' ? img : img.src}
+                            src={getImageUrl(img)}
                             alt={typeof img === 'object' ? img.alt : product.name}
                             onClick={() => setMainImgIndex(index)}
                             style={{
@@ -70,9 +84,7 @@ const ProductDisplay = (props) => {
                 <div className="productdisplay-img">
                     <img
                         className='productdisplay-main-img'
-                        src={typeof product.images[mainImgIndex] === 'string'
-                            ? product.images[mainImgIndex]
-                            : product.images[mainImgIndex]?.src}
+                        src={getImageUrl(product.images[mainImgIndex])}
                         alt={product.name}
                      />
                 </div>

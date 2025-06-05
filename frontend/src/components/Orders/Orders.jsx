@@ -3,9 +3,11 @@ import './Orders.css';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const API_URL = process.env.REACT_APP_API_URL;
+
 
   useEffect(() => {
-    fetch('http://localhost:4000/orders', {
+    fetch(`${API_URL}/orders`, {
       headers: {
         'aut-token': localStorage.getItem('aut-token')
       }
