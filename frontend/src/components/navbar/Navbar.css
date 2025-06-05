@@ -181,19 +181,25 @@
     }
 }   
 
-@media (max-width: 500px) {
-    .navbar {
-        padding: 8px 0px;
-        gap: 0;
-    }
-    .nav-logo{
-        transform: scale(0.8);
-    }   
-    .nav-menu{
-        height: 70px;
-        top: 50px;
-    }
-    .nav-login-cart {
-        transform: scale(0.8);
-    }
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 18px !important;
+    padding: 10px 0px;
+  }
+  .nav-menu {
+    flex-direction: column;
+    gap: 24px !important; 
+    font-size: 18px;
+    width: 100%;
+    align-items: flex-start;
+    padding-left: 12px;
+  }
+  .nav-login-cart {
+    gap: 24px !important;
+    margin-top: 10px;
+  }
+  .nav-logo {
+    margin-bottom: 8px;
+  }
 }

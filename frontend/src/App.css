@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+@media (max-width: 600px) {
+  .brand-new,
+  .shop-category,
+  .productdisplay,
+  .cartitems {
+    margin-bottom: 80px !important;
+  }
+  .footer {
+    margin-top: 40px !important;
+  }
+}
