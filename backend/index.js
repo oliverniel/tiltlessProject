@@ -32,7 +32,7 @@ app.use('/images', express.static('upload/images'))
 app.post("/upload", upload.array('product'), (req,res)=> {
   res.json({
     success: 1,
-    images_url: req.files.map(file => `http://localhost:${process.env.PORT}/images/${file.filename}`)
+    images_url: req.files.map(file => `/images/${file.filename}`)
   })
 })
 

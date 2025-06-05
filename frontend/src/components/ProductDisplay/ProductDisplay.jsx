@@ -14,16 +14,25 @@ const ProductDisplay = (props) => {
     const API_URL = process.env.REACT_APP_API_URL;
 
     const getImageUrl = (img) => {
+        if (!img) return '';
         if (typeof img === 'string') {
             if (img.startsWith('http://localhost:4000')) {
                 return img.replace('http://localhost:4000', API_URL);
             }
-            return img;
+
+            if (img.startsWith('/images')) {
+                return `${API_URL}${img}`;
+            }
+
+            if (img.startsWith('http')) {
+                return img;
+            }
+            return `${API_URL}/${img}`;
         }
-        if (img?.src && img.src.startsWith('http://localhost:4000')) {
-            return img.src.replace('http://localhost:4000', API_URL);
+        if (img?.src) {
+            return getImageUrl(img.src);
         }
-        return img?.src || '';
+        return '';
     };
 
     if (!product || !product.images) return <div>Loading...</div>; 

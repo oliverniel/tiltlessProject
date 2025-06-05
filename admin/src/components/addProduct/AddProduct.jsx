@@ -5,6 +5,8 @@ import upload_icon from '../../assets/upload.jpg'
 
 const AddProduct = () => {
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const [images, setImages] = useState([])
   const [productDetails, setProductDetails] = useState({
     name: '',
@@ -55,7 +57,7 @@ const AddProduct = () => {
     let formData = new FormData()
     images.forEach(img => formData.append('product', img))
 
-    await fetch('http://localhost:4000/upload', {
+    await fetch(`${API_URL}/upload`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -66,7 +68,7 @@ const AddProduct = () => {
     if (responseData.success) {
       product.images = responseData.images_url
       console .log(product)
-      await fetch('http://localhost:4000/addproduct', {
+      await fetch(`${API_URL}/addproduct`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
