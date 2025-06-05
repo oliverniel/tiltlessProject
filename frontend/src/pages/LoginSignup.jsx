@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const LoginSignup = () => {
 
+    const API_URL = process.env.REACT_APP_API_URL;
     const [state, setState] = useState("Login");
     const [formData, setFormData] = useState({
         name: '',
@@ -20,7 +21,7 @@ const LoginSignup = () => {
     const login = async () => {
         console.log("Login function called", formData);   
         let responseData
-        await fetch('http://localhost:4000/login', {
+        await fetch(`${API_URL}/login`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -41,7 +42,7 @@ const LoginSignup = () => {
     const signUp = async () => {
         console.log("Sign Up function called", formData);   
         let responseData
-        await fetch('http://localhost:4000/signup', {
+        await fetch(`${API_URL}/signup`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -5,7 +5,7 @@ import removeicon from '../assets/removeicon.png'
 
 const CartItems = () => {
     const {all_products, cartItems, cartDetails, removeFromCart, getTotalCartAmount, setCartDetails} = useContext(ShopContext)
-
+    const API_URL = process.env.REACT_APP_API_URL;
     const cartVariantKeys = Object.keys(cartDetails);
 
     return (
@@ -114,7 +114,7 @@ const CartItems = () => {
               </div>
               <button
                 onClick={() => {
-                  fetch('http://localhost:4000/checkout', {
+                  fetch(`${API_URL}/checkout`, {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json',
