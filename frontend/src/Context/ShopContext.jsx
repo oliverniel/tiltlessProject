@@ -2,6 +2,8 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const ShopContext = createContext(null)
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const getDefaultCart = () =>{
     let cart = {}
     for(let i=1; i<300+1; i++){
@@ -17,12 +19,12 @@ const ShopContextProvider = (props) => {
     const [cartDetails, setCartDetails] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:4000/allproducts')
+        fetch(`${API_URL}/allproducts`)
             .then((response) => response.json())
             .then((data)=>setAllProducts(data))
 
             if(localStorage.getItem('aut-token')){
-                fetch('http://localhost:4000/getcart', {
+                fetch(`${API_URL}/getcart`, {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -43,6 +45,7 @@ const ShopContextProvider = (props) => {
             }
     }, [])
 
+    const [addToCartSuccess, setAddToCartSuccess] = useState(false);
 
     const addToCart = (itemID, options = {}) => {
  
@@ -76,7 +79,7 @@ const ShopContextProvider = (props) => {
         }
 
         if (localStorage.getItem('aut-token')) {
-            fetch('http://localhost:4000/addtocart', {
+            fetch(`${API_URL}/addtocart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -86,6 +89,12 @@ const ShopContextProvider = (props) => {
                 body: JSON.stringify({ "itemId": itemID, options }),
             })
             .then((response) => response.json())
+            .then(()=> {
+                setAddToCartSuccess(true);
+                setTimeout(() => {
+                    setAddToCartSuccess(false);
+                }, 2000)
+            })
             .catch((err) => console.error('Add to cart fetch error:', err));
         }
     }
@@ -99,7 +108,7 @@ const ShopContextProvider = (props) => {
         });
         setCartItems((prev)=>({...prev, [itemID]: 0}))
         if(localStorage.getItem('aut-token')) {
-            fetch('http://localhost:4000/removefromcart', {
+            fetch(`${API_URL}/removefromcart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -160,7 +169,7 @@ const ShopContextProvider = (props) => {
         return totalItems
     }
             
-    const contextValue = {all_products, cartItems, cartDetails, setCartDetails, addToCart, removeFromCart, getTotalCartAmount, getTotalCartItems}
+    const contextValue = {all_products, cartItems, cartDetails, setCartDetails, addToCart, removeFromCart, getTotalCartAmount, getTotalCartItems, addToCartSuccess}
 
     return(
         <ShopContext.Provider value={contextValue}>

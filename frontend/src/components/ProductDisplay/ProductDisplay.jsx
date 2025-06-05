@@ -4,7 +4,7 @@ import { ShopContext } from '../../Context/ShopContext';
 
 const ProductDisplay = (props) => {
     const { product } = props;
-    const {addToCart} = useContext(ShopContext)
+    const { addToCart, addToCartSuccess } = useContext(ShopContext)
     const [selectedHand, setSelectedHand] = useState(null);
     const [selectedShaft, setSelectedShaft] = useState(null);
     const [selectedFlex, setSelectedFlex] = useState(null);
@@ -105,6 +105,9 @@ const ProductDisplay = (props) => {
                     {renderOptionButtons(product.loft, selectedLoft, setSelectedLoft)}
                 </div>
                 {errorMsg && <div style={{color: 'red', margin: '8px 0'}}>{errorMsg}</div>}
+                {addToCartSuccess && (
+                  <div style={{color: 'green', margin: '8px 0'}}>Tuote lisätty ostoskoriin!</div>
+                )}
                 <div className="productdisplay-right-add">
                     <button onClick={handleAddToCart}>ADD TO CART</button>
                 </div>
