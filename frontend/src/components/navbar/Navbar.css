@@ -177,7 +177,11 @@
     }
     .nav-menu-visible{
         display: flex;
-
+        z-index: 1001;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
     }
     .nav-dropdown.open{
         transform: rotate(90deg);
