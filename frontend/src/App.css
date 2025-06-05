@@ -38,14 +38,17 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .brand-new,
   .shop-category,
   .productdisplay,
   .cartitems {
-    margin-bottom: 80px !important;
+    margin-bottom: 120px !important;
   }
   .footer {
     margin-top: 40px !important;
+  }
+  .brand-new{
+    margin-bottom: 80px !important
   }
 }
