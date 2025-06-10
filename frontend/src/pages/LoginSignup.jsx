@@ -69,8 +69,49 @@ const LoginSignup = () => {
                     <input name="password" value={formData.password} onChange={handleChange} type="password" placeholder="Your Password" />
                 </div>
                 <button onClick={()=>{state==="Login"?login():signUp()}}>Continue</button>
-                {state==="Sign Up"?<p className="loginsignup-login">Already have an account? <span onClick={()=>{setState("Login")}}>Login here</span></p> :
-                <p className="loginsignup-login">Create an account? <span onClick={()=>{setState("Sign Up")}}>Click here</span></p>}
+                {state === "Sign Up" ? (
+                    <p className="loginsignup-login">
+                        Already have an account?{" "}
+                        <button
+                            type="button"
+                            className="loginsignup-switch-btn"
+                            onClick={() => setState("Login")}
+                            style={{
+                                background: "none",
+                                border: "none",
+                                color: "#ff4141",
+                                fontWeight: 600,
+                                textDecoration: "underline",
+                                cursor: "pointer",
+                                padding: 0,
+                                fontSize: "inherit"
+                            }}
+                        >
+                            Click here
+                        </button>
+                    </p>
+                ) : (
+                    <p className="loginsignup-login">
+                        Create an account?{" "}
+                        <button
+                            type="button"
+                            className="loginsignup-switch-btn"
+                            onClick={() => setState("Sign Up")}
+                            style={{
+                                background: "none",
+                                border: "none",
+                                color: "#ff4141",
+                                fontWeight: 600,
+                                textDecoration: "underline",
+                                cursor: "pointer",
+                                padding: 0,
+                                fontSize: "inherit"
+                            }}
+                        >
+                            Click here
+                        </button>
+                    </p>
+            )}
             </div>
         </div>
             

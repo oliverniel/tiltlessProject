@@ -2,19 +2,28 @@ import React from 'react'
 import './ListProduct.css'
 import { useState, useEffect } from 'react'
 
+const API_URL = import.meta.env.VITE_API_URL; 
+
 const ListProduct = () => {
 
   const [allProducts, setAllProducts] = useState([])
 
   const fetchProducts = async () => {
-    await fetch('http://localhost:4000/allproducts')
+    await fetch(`${API_URL}/allproducts`)
       .then((response)=> response.json())
       .then((data) => {setAllProducts(data)})
   }
 
   useEffect(() => {
     fetchProducts()
-  }, [])
+  }, [API_URL])
+
+
+  const getImageUrl = (img) => {
+    if (!img) return '';
+    if (img.startsWith('/images')) return `${API_URL}${img}`;
+    return img;
+  };
 
   return (
     <div className="list-product">
@@ -38,7 +47,7 @@ const ListProduct = () => {
         {allProducts.map((product) => (
           <React.Fragment key={product.id}>
             <div className="listproduct-format">
-              <img src={product.images[0]} alt={product.name} />
+              <img src={getImageUrl(product.images[0])} alt={product.name} />
               <p>{product.name}</p>
               <p>{product.brand}</p>
               <p>{product.description}</p>
@@ -50,7 +59,7 @@ const ListProduct = () => {
               <p>{product.loft.join(', ')}</p>
               <p>{product.type}</p>
               <button onClick={() => {
-                fetch('http://localhost:4000/removeproduct', {
+                fetch(`${API_URL}/removeproduct`, {
                   method: 'POST',
                   headers: {
                     Accept: 'application/json',
