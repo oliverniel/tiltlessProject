@@ -35,12 +35,33 @@ const LoginSignup = () => {
             localStorage.setItem('user-email', responseData.email || (responseData.user && responseData.user.email) || "unidentified");
             window.location.href = '/';
         } else {
-            alert(responseData.errors || "An error occurred during sign up.");
+            alert(responseData.errors || "An error occurred during login.");
         }
     }
 
     const signUp = async () => {
-        console.log("Sign Up function called", formData);   
+        console.log("Sign Up function called", formData); 
+        if (!formData.email ||
+            formData.email.length < 5 ||
+            formData.email.length > 30 ||
+            !formData.email.includes('@')) {
+                alert("Sähköposti ei ole kelvollinen.")
+                return;
+            }
+        if(!formData.name ||
+            formData.name.length < 3 ||
+            formData.name.length > 30) {
+                alert("Nimi ei ole kelvollinen.")
+                return;
+            }
+
+        if(!formData.password ||
+            formData.password.length < 5 ||
+            formData.password.length > 30) {
+                alert("Salasana on liian pitkä tai lyhyt.")
+                return;
+            }
+        
         let responseData
         await fetch(`${API_URL}/signup`, {
             method: 'POST',

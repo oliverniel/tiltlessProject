@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const path = require('path');
 require('dotenv').config();
+const bcrypt = require('bcrypt');
 
 app.use(express.static(path.join(__dirname, 'build')));
 
@@ -172,6 +173,43 @@ const Users = mongoose.model('Users', {
 //Creating Endpoint for registering users
 app.post('/signup', async (request, response) => {
     
+    const saltRounds = 10;
+    
+    const plainPassword = request.body.password;
+    if (!plainPassword || 
+        plainPassword.length < 5 || 
+        plainPassword.length > 30) {
+            return response.status(400).json({
+                success: false,
+                errors: "Salasana on liian lyhyt tai pitkä"
+            });
+        }
+    const hashedPassword = await bcrypt.hash(plainPassword, saltRounds);
+
+
+    const name = request.body.name;
+    if (!name ||
+        name.length < 3 ||
+        name.length > 30) {
+            return response.status(400).json({
+                success: false,
+                errors: "Nimi on liian lyhyt tai pitkä"
+            })
+        }
+
+
+    const email = request.body.email;
+    if (!email || 
+        email.length < 5 ||
+        email.length > 30 ||
+        !email.includes('@')) {
+            return response.status(400).json({
+                success: false,
+                errors: "Sähköposti on liian lyhyt tai ei sisällä kaikkea tarvittavaa"
+            });
+        }
+    
+
     let check = await Users.findOne({ email: request.body.email })
     if (check) {
         return response.status(400).json({
@@ -186,7 +224,7 @@ app.post('/signup', async (request, response) => {
     const user = new Users({
         name: request.body.name,
         email: request.body.email,
-        password: request.body.password,
+        password: hashedPassword,
         cartData: cart
     })
     await user.save();
@@ -211,7 +249,7 @@ app.post('/login', async (request, response) => {
         return response.json({ success: false, errors: "A AAA nice try but wrong email" })
     }
 
-    const passCompare = request.body.password === user.password;
+    const passCompare = await bcrypt.compare(request.body.password, user.password);
     if (passCompare) {
         const data = {
             user: {
